@@ -81,6 +81,26 @@ There's no limit to this notation, you could do:
 echo Jsonize::encode($users, array('posts'=>array('user'=>array('posts','comments'))));
 // it will output also $user->posts, $user->posts->user, $user->posts->user->posts and $user->posts->user->comments
 ~~~
+
+## Cast CActiveRecord string values to actual types (MySQL)
+~~~php
+echo Jsonize::cast_encode($register);
+/*
+ output
+ {
+   "id": 1,   
+   "reg_number": "qwerty",
+   "reg_date": "2016-09-20T12:06:21",   
+   "detail": {
+     "id": 1,     
+     "form_id": 0,     
+     "cost": 25.83
+     "is_deleted": 0
+   }
+ }
+*/
+~~~
+
 ##Notes
 
 For nested relations, the policy specifying which attributes/relations are to be processed is the same as the first one. For example:
